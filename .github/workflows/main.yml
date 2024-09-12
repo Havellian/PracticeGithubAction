@@ -1,0 +1,22 @@
+name: lint_test_deploy
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: lint execution
+        run: npx eslint
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: test execution
+        run:  npm test
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: deployment execution
+        run: |
+              npm install -g serve
+              serve -s build

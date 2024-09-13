@@ -6,6 +6,7 @@ jobs:
     steps:
       - name: All steps together
         run: |
-              npx eslint
+              npm ci
+              npm run lint
               npm test
               npm run build

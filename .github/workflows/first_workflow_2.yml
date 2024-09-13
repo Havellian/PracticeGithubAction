@@ -4,8 +4,9 @@ jobs:
   lint_test_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: All steps together
+      - name: get updated repo
         uses: actions/checkout@v3
+      - name: All steps together
         run: |
               npm ci
               npm run lint

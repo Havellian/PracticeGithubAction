@@ -1,0 +1,11 @@
+name: first_workflow
+on: push
+jobs:
+  lint_test_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: All steps together
+        run: |
+              npx eslint
+              npm test
+              npm run build
